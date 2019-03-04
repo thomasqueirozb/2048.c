@@ -413,6 +413,11 @@ int main(int argc, char *argv[]) {
 				break;
 			}
 		}
+
+		if (c==12){
+			printf("\e[1;1H\e[2J");
+			drawBoard(board);
+		}
 		if (c=='q') {
 			printf("        QUIT? (y/n)         \n");
 			c=getchar();
