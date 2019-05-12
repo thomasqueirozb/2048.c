@@ -356,6 +356,20 @@ void signal_callback_handler(int signum) {
 	exit(signum);
 }
 
+
+
+
+
+void key() {
+    printf("PRESS A KEY TO CONTINUE \n");
+    int ch1 = getchar();
+    printf("Character: %d\n", ch1);
+}
+
+
+
+
+
 int main(int argc, char *argv[]) {
 	uint8_t board[SIZE][SIZE];
 	char c;
@@ -370,6 +384,11 @@ int main(int argc, char *argv[]) {
 	if (argc == 2 && strcmp(argv[1],"bluered")==0) {
 		scheme = 2;
 	}
+	if (argc == 2 && strcmp(argv[1],"key")==0) {
+		key();
+		return 0;
+	}
+
 
 	printf("\033[?25l\033[2J");
 
@@ -413,6 +432,16 @@ int main(int argc, char *argv[]) {
 				break;
 			}
 		}
+
+
+		if (c==12){
+//			printf("\033[?25h\033[m");
+			printf("\e[1;1H\e[2J");
+			drawBoard(board);
+		}
+
+
+
 		if (c=='q') {
 			printf("        QUIT? (y/n)         \n");
 			c=getchar();
