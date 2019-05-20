@@ -361,11 +361,19 @@ void key() {
     printf("Character: %d\n", ch1);
 }
 
+
 int main(int argc, char *argv[]) {
     uint8_t board[SIZE][SIZE];
     char c;
     bool success;
 
+    if (argc > 1) {
+        for (int i=0; i<argc; i++){
+            printf("i:%d - %s\n", i, argv[i]);
+        }
+        // printf("argv %s\n", argv);
+        return 1;
+    }
     if (argc == 2 && strcmp(argv[1], "test") == 0) {
         return test();
     }
